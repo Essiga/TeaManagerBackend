@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Table(name = "session")
 public class Session {
     @Id @GeneratedValue
-//    @Column(name = "id_session")
+    @Column(name = "id")
     private long id;
     @Column(name = "session_id")
     private SessionId sessionId;

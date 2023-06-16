@@ -24,7 +24,7 @@ public class TeaDTO {
     private final String link;
     private final VendorId vendorId;
     private final int year;
-    private final List<PriceRecord> priceHistory;
+    private final List<PriceRecordDTO> priceHistory;
     private final String notes;
 
     public static List<TeaDTO> fromTeaList(List<Tea> teas) {
@@ -40,7 +40,7 @@ public class TeaDTO {
                 .link(tea.getLink())
                 .vendorId(tea.getVendorId())
                 .year(tea.getYear())
-                .priceHistory(tea.getPriceHistory())
+                .priceHistory(tea.getPriceHistory().stream().map(PriceRecordDTO::fromPriceRecord).toList())
                 .notes(tea.getNotes())
                 .build();
     }

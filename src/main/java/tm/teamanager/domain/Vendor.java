@@ -9,7 +9,7 @@ import tm.teamanager.domain.valueobjects.VendorId;
 @Table(name = "vendor")
 public class Vendor {
     @Id @GeneratedValue
-    @Column(name = "id_vendor")
+    @Column(name = "id")
     private long id;
     @Column(name = "vendor_id")
     private VendorId vendorId;
