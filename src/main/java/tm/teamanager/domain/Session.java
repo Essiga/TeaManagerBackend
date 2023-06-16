@@ -1,6 +1,7 @@
 package tm.teamanager.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import tm.teamanager.domain.valueobjects.SessionId;
 import tm.teamanager.domain.valueobjects.TeaId;
 import tm.teamanager.domain.valueobjects.VesselId;
@@ -8,6 +9,7 @@ import tm.teamanager.domain.valueobjects.VesselId;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "session")
 public class Session {

@@ -1,8 +1,10 @@
 package tm.teamanager.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import tm.teamanager.domain.valueobjects.VendorId;
 
+@Getter
 @Entity
 @Table(name = "vendor")
 public class Vendor {

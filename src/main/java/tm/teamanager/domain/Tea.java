@@ -1,6 +1,7 @@
 package tm.teamanager.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import tm.teamanager.domain.valueobjects.PriceRecord;
 import tm.teamanager.domain.valueobjects.TeaId;
 import tm.teamanager.domain.valueobjects.TeaType;
@@ -9,6 +10,7 @@ import tm.teamanager.domain.valueobjects.VendorId;
 import java.math.BigDecimal;
 import java.util.List;
 
+@Getter
 @Entity
 @Table(name = "tea")
 public class Tea {

@@ -1,9 +1,11 @@
 package tm.teamanager.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import tm.teamanager.domain.valueobjects.VesselId;
 import tm.teamanager.domain.valueobjects.VesselType;
 
+@Getter
 @Entity
 @Table(name = "vessel")
 public class Vessel {
