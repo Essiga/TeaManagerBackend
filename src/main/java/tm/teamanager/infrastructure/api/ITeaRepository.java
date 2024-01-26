@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ITeaRepository {
     List<Tea> getAllTeas();
+    void createTea(Tea tea);
 }

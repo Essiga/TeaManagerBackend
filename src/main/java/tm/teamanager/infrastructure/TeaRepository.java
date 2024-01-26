@@ -18,4 +18,9 @@ public class TeaRepository implements ITeaRepository {
         TypedQuery query = em.createQuery("FROM Tea", Tea.class);
         return query.getResultList();
     }
+
+    @Override
+    public void createTea(Tea tea) {
+        em.persist(tea);
+    }
 }

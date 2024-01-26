@@ -2,7 +2,7 @@ package tm.teamanager.view;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tm.teamanager.application.api.IViewTeaService;
+import tm.teamanager.application.api.ITeaService;
 import tm.teamanager.application.dto.TeaDTO;
 
 import java.util.List;
@@ -13,16 +13,22 @@ import java.util.List;
 public class TeaManagerRestController {
 
 
-    private final IViewTeaService viewTeaService;
+    private final ITeaService teaService;
 
     @Autowired
-    public TeaManagerRestController(IViewTeaService viewTeaService) {
-        this.viewTeaService = viewTeaService;
+    public TeaManagerRestController(ITeaService teaService) {
+        this.teaService = teaService;
+
     }
 
-    @GetMapping("/getAllTeas")
+    @GetMapping("/teas")
     public List<TeaDTO> getAllTeas() {
-        List<TeaDTO> teas = viewTeaService.getAllTeas();
+        List<TeaDTO> teas = teaService.getAllTeas();
         return teas;
+    }
+
+    @PostMapping("/teas")
+    public void createTea(@RequestBody TeaDTO teaDTO) {
+        teaService.createTea(teaDTO);
     }
 }

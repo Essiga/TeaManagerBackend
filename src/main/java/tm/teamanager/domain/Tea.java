@@ -1,7 +1,9 @@
 package tm.teamanager.domain;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
+import tm.teamanager.application.dto.TeaDTO;
 import tm.teamanager.domain.valueobjects.PriceRecord;
 import tm.teamanager.domain.valueobjects.TeaId;
 import tm.teamanager.domain.valueobjects.TeaType;
@@ -12,6 +14,7 @@ import java.util.List;
 
 @Getter
 @Entity
+@Builder
 @Table(name = "tea")
 public class Tea {
     @Id @GeneratedValue
@@ -40,5 +43,23 @@ public class Tea {
     @Column(name = "notes")
     private String notes;
 
+    public Tea() {
+
+    }
+
+    public static Tea fromTeaDTO(TeaDTO teaDTO) {
+        return Tea.builder()
+                .teaId(new TeaId())
+                .name(teaDTO.getName())
+                .type(teaDTO.getType())
+                .price(teaDTO.getPrice())
+                .amount(teaDTO.getAmount())
+                .link(teaDTO.getLink())
+                .vendorId(teaDTO.getVendorId())
+                .year(teaDTO.getYear())
+                .priceHistory(teaDTO.getPriceHistory().stream().map(PriceRecord::fromPriceRecordDTO).toList())
+                .notes(teaDTO.getNotes())
+                .build();
+    }
 
 }
